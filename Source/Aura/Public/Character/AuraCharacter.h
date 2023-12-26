@@ -24,6 +24,8 @@ public:
 	virtual void OnRep_PlayerState() override;
 	/** </APawn> */
 
+	virtual void InitAbilityActorInfo() override;
+
 private:
-	void InitAbilityActorInfo();
+	
 };
