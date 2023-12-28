@@ -38,6 +38,6 @@ private:
 	/** Trace */
 	void CursorTrace();
 
-	TObjectPtr<ITargetInterface> LastActor;
-	TObjectPtr<ITargetInterface> ThisActor;
+	ITargetInterface* LastActor;
+	ITargetInterface* ThisActor;
 };

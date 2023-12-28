@@ -60,19 +60,122 @@ public:
 	virtual void PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue) override;
 	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
 
+	/*
+	*	Primary Attributes
+	*/
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Strength, Category = "Primary Attributes")
+	FGameplayAttributeData Strength; // Increases Physical Damage and Penetration
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Strength);
+
+	UFUNCTION()
+	void OnRep_Strength(const FGameplayAttributeData& OldStrength) const;
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Intellect, Category = "Primary Attributes")
+	FGameplayAttributeData Intellect; // Increases Magical Damage and Max Mana and Mana Regeneration
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Intellect);
+
+	UFUNCTION()
+	void OnRep_Intellect(const FGameplayAttributeData& OldIntellect) const;
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Resilience, Category = "Primary Attributes")
+	FGameplayAttributeData Resilience; // Increases Armor and thusly Block Chance
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Resilience);
+
+	UFUNCTION()
+	void OnRep_Resilience(const FGameplayAttributeData& OldResilience) const;
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Vigor, Category = "Primary Attributes")
+	FGameplayAttributeData Vigor; // Increases Max Health and Health Regeneration
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Vigor);
+
+	UFUNCTION()
+	void OnRep_Vigor(const FGameplayAttributeData& OldVigor) const;
+
+	/*
+	*	Secondary Attributes
+	*/
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Armor, Category = "Secondary Attributes")
+	FGameplayAttributeData Armor; // REduces damage taken and increases Block Chance
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Armor);
+
+	UFUNCTION()
+	void OnRep_Armor(const FGameplayAttributeData& OldArmor) const;
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_ArmorPen, Category = "Secondary Attributes")
+	FGameplayAttributeData ArmorPen; // Ignores percentage of enemy armor, increases Crit Chance
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, ArmorPen);
+
+	UFUNCTION()
+	void OnRep_ArmorPen(const FGameplayAttributeData& OldArmorPen) const;
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_BlockChance, Category = "Secondary Attributes")
+	FGameplayAttributeData BlockChance; // Chance to reduce damage by half
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, BlockChance);
+
+	UFUNCTION()
+	void OnRep_BlockChance(const FGameplayAttributeData& OldBlockChance) const;
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_CriticalHitChance, Category = "Secondary Attributes")
+	FGameplayAttributeData CriticalHitChance; // Increases Max Health and Health Regeneration
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, CriticalHitChance);
+
+	UFUNCTION()
+	void OnRep_CriticalHitChance(const FGameplayAttributeData& OldCriticalHitChance) const;
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_CriticalHitDamage, Category = "Secondary Attributes")
+	FGameplayAttributeData CriticalHitDamage; // REduces damage taken and increases Block Chance
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, CriticalHitDamage);
+
+	UFUNCTION()
+	void OnRep_CriticalHitDamage(const FGameplayAttributeData& OldCriticalHitDamage) const;
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_CriticalHitResistance, Category = "Secondary Attributes")
+	FGameplayAttributeData CriticalHitResistance; // Ignores percentage of enemy armor, increases Crit Chance
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, CriticalHitResistance);
+
+	UFUNCTION()
+	void OnRep_CriticalHitResistance(const FGameplayAttributeData& OldCriticalHitResistance) const;
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_HealthRegeneration, Category = "Secondary Attributes")
+	FGameplayAttributeData HealthRegeneration; // Chance to reduce damage by half
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, HealthRegeneration);
+
+	UFUNCTION()
+	void OnRep_HealthRegeneration(const FGameplayAttributeData& OldHealthRegeneration) const;
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_ManaRegeneration, Category = "Secondary Attributes")
+	FGameplayAttributeData ManaRegeneration; // Increases Max Health and Health Regeneration
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, ManaRegeneration);
+
+	UFUNCTION()
+	void OnRep_ManaRegeneration(const FGameplayAttributeData& OldManaRegeneration) const;
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxHealth, Category = "Secondary Attributes")
+	FGameplayAttributeData MaxHealth;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxHealth);
+
+	UFUNCTION()
+	void OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth) const;
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxMana, Category = "Secondary Attributes")
+	FGameplayAttributeData MaxMana;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxMana);
+
+	UFUNCTION()
+	void OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) const;
+
+	/*
+	*	Vital Attributes
+	*/
+
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Health, Category = "Vital Attributes")
 	FGameplayAttributeData Health;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Health);
 
 	UFUNCTION()
 	void OnRep_Health(const FGameplayAttributeData& OldHealth) const;
-
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxHealth, Category = "Vital Attributes")
-	FGameplayAttributeData MaxHealth;
-	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxHealth);
-
-	UFUNCTION()
-	void OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth) const;
 	
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Mana, Category = "Vital Attributes")
 	FGameplayAttributeData Mana;
@@ -80,13 +183,6 @@ public:
 
 	UFUNCTION()
 	void OnRep_Mana(const FGameplayAttributeData& OldMana) const;
-
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxMana, Category = "Vital Attributes")
-	FGameplayAttributeData MaxMana;
-	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxMana);
-
-	UFUNCTION()
-	void OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) const;
 
 private:
 	void SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props) const;

@@ -23,8 +23,15 @@ public:
 	virtual void UnHighlightActor() override;
 	/** </ITargetInterface> */
 
+	/** <ICombatInterface> */
+	virtual int32 GetPlayerLevel() override;
+	/** </ICombatInterface> */
+
 protected:
 	virtual void BeginPlay() override;
 
 	virtual void InitAbilityActorInfo() override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character Class Defaults")
+	int32 Level = 1;
 };

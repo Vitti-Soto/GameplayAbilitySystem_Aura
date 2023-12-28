@@ -24,6 +24,10 @@ public:
 	virtual void OnRep_PlayerState() override;
 	/** </APawn> */
 
+	/** <ICombatInterface> */
+	virtual int32 GetPlayerLevel() override;
+	/** </ICombatInterface> */
+
 	virtual void InitAbilityActorInfo() override;
 
 private:
