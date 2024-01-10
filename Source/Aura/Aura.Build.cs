@@ -15,6 +15,7 @@ public class Aura : ModuleRules
 			"Engine",
             "GameplayAbilities",
             "InputCore",
+			"NavigationSystem",
 			"UMG"
 		});
 
