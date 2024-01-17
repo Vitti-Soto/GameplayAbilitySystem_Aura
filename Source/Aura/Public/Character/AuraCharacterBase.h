@@ -30,7 +30,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const;
-	void InitializeDefaultAttributes() const;
+	virtual void InitializeDefaultAttributes() const;
 	virtual void InitAbilityActorInfo();
 
 	void AddCharacterAbilities();
