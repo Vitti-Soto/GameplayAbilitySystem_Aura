@@ -20,6 +20,7 @@ public class Aura : ModuleRules
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {
+            "AIModule",
             "GameplayTags",
             "GameplayTasks",
 			"Niagara"
