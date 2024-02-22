@@ -2,7 +2,7 @@
 
 
 #include "Player/AuraPlayerController.h"
-#include "Interaction/TargetInterface.h"
+#include "Interaction/EnemyInterface.h"
 #include "EnhancedInputSubsystems.h"
 #include "Input/AuraInputComponent.h"
 #include "AbilitySystem/AuraAbilitySystemComponent.h"
@@ -109,7 +109,7 @@ void AAuraPlayerController::CursorTrace()
 	if (!CursorHit.bBlockingHit) return;
 
 	LastActor = ThisActor;
-	ThisActor = Cast<ITargetInterface>(CursorHit.GetActor());
+	ThisActor = Cast<IEnemyInterface>(CursorHit.GetActor());
 
 	/**
 	* Line trace from cursor. There are several scenarios:

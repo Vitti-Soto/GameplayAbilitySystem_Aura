@@ -4,11 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
-#include "TargetInterface.generated.h"
+#include "EnemyInterface.generated.h"
 
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
-class UTargetInterface : public UInterface
+class UEnemyInterface : public UInterface
 {
 	GENERATED_BODY()
 };
@@ -16,11 +16,17 @@ class UTargetInterface : public UInterface
 /**
  * 
  */
-class AURA_API ITargetInterface
+class AURA_API IEnemyInterface
 {
 	GENERATED_BODY()
 
 public:
 	virtual void HighlightActor() = 0;
 	virtual void UnHighlightActor() = 0;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	AActor* GetCombatTarget() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetCombatTarget(AActor* InCombatTarget);
 };

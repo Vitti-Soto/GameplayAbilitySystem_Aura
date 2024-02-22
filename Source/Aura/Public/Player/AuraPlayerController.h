@@ -10,7 +10,7 @@
 class UInputMappingContext;
 class UInputAction;
 struct FInputActionValue;
-class ITargetInterface;
+class IEnemyInterface;
 class UAuraInputConfig;
 class UAuraAbilitySystemComponent;
 class USplineComponent;
@@ -52,8 +52,8 @@ private:
 	/** Trace */
 	void CursorTrace();
 
-	ITargetInterface* LastActor;
-	ITargetInterface* ThisActor;
+	IEnemyInterface* LastActor;
+	IEnemyInterface* ThisActor;
 	FHitResult CursorHit;
 
 	/** Ability Input */
