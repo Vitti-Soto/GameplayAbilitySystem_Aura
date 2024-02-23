@@ -1,4 +1,0 @@
-Events.Montage.FireBolt
-Events.Montage.MeleeAttack
-
-DefaultGameplayTags.ini
