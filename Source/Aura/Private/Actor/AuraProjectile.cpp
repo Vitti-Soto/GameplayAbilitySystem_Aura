@@ -79,6 +79,7 @@ void AAuraProjectile::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, 
 		{
 			TravelSoundComponent->Stop();
 		}
+		bHit = true;
 	}
 
 	if (HasAuthority())
