@@ -33,6 +33,8 @@ public:
 	/** <IPlayerInterface> */
 	virtual void AddToXP_Implementation(int32 InXP) override;
 	virtual int32 GetXP_Implementation() const override;
+	virtual int32 GetAttributePoints_Implementation() const override;
+	virtual int32 GetSpellPoints_Implementation() const override;
 	virtual int32 GetAttributePointsReward_Implementation(int32 Level) const override;
 	virtual int32 GetSpellPointsReward_Implementation(int32 Level) const override;
 	virtual void LevelUp_Implementation() override;
