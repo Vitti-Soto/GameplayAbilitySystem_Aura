@@ -16,6 +16,19 @@ public:
 	static const FAuraGameplayTags& Get() { return GameplayTags; }
 	static void InitializeNativeGameplayTags();
 
+	/* Inputs */
+	FGameplayTag InputTag_LMB;
+	FGameplayTag InputTag_RMB;
+	FGameplayTag InputTag_1;
+	FGameplayTag InputTag_2;
+	FGameplayTag InputTag_3;
+	FGameplayTag InputTag_4;
+	FGameplayTag InputTag_Passive_1;
+	FGameplayTag InputTag_Passive_2;
+
+	/* Meta Attributes */
+	FGameplayTag Attributes_Meta_IncomingXP;
+
 	/* Primary Attributes */
 	FGameplayTag Attributes_Primary_Strength;
 	FGameplayTag Attributes_Primary_Intellect;
@@ -40,25 +53,25 @@ public:
 	FGameplayTag Attributes_Resistance_Arcane;
 	FGameplayTag Attributes_Resistance_Physical;
 
-	/* Meta Attributes */
-	FGameplayTag Attributes_Meta_IncomingXP;
-
-	/* Inputs */
-	FGameplayTag InputTag_LMB;
-	FGameplayTag InputTag_RMB;
-	FGameplayTag InputTag_1;
-	FGameplayTag InputTag_2;
-	FGameplayTag InputTag_3;
-	FGameplayTag InputTag_4;
-	FGameplayTag InputTag_Passive_1;
-	FGameplayTag InputTag_Passive_2;
-
 	/* Damage and Damage Types */
 	FGameplayTag Damage;
 	FGameplayTag Damage_Fire;
 	FGameplayTag Damage_Lightning;
 	FGameplayTag Damage_Arcane;
 	FGameplayTag Damage_Physical;
+
+	/* Debuffs */
+	FGameplayTag Debuff_Burn;
+	FGameplayTag Debuff_Stun;
+	FGameplayTag Debuff_Arcane;
+	FGameplayTag Debuff_Physical;
+
+	/* Debuff Info */
+	FGameplayTag Debuff_Info_Chance;
+	FGameplayTag Debuff_Info_Damage;
+	FGameplayTag Debuff_Info_Duration;
+	FGameplayTag Debuff_Info_Frequency;
+	FGameplayTag Debuff_Info_Stagger;
 
 	/* Abilities */
 	FGameplayTag Abilities_None;
@@ -85,9 +98,6 @@ public:
 	/* Cooldowns */
 	FGameplayTag Cooldown_Fire_FireBolt;
 
-	/* Damage Types to Resistances Map */
-	TMap<FGameplayTag, FGameplayTag> DamageTypesToResistances;
-
 	/* Effect */
 	FGameplayTag Effects_HitReact;
 
@@ -107,6 +117,10 @@ public:
 	FGameplayTag Montage_Attack_4;
 
 	FGameplayTag Montage_Summon_1;
+
+	/* Damage Types Maps */
+	TMap<FGameplayTag, FGameplayTag> DamageTypesToResistances;
+	TMap<FGameplayTag, FGameplayTag> DamageTypesToDebuffs;
 	
 private:
 	static FAuraGameplayTags GameplayTags;

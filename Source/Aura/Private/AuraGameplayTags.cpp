@@ -8,6 +8,44 @@ FAuraGameplayTags FAuraGameplayTags::GameplayTags;
 
 void FAuraGameplayTags::InitializeNativeGameplayTags()
 {
+	/* Input Tags */
+	GameplayTags.InputTag_LMB = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("InputTag.LMB"),
+		FString("Left Mouse Button"));
+
+	GameplayTags.InputTag_RMB = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("InputTag.RMB"),
+		FString("Right Mouse Button"));
+
+	GameplayTags.InputTag_1 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("InputTag.1"),
+		FString("Number 1 Key"));
+
+	GameplayTags.InputTag_2 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("InputTag.2"),
+		FString("Number 2 Key"));
+
+	GameplayTags.InputTag_3 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("InputTag.3"),
+		FString("Number 3 Key"));
+
+	GameplayTags.InputTag_4 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("InputTag.4"),
+		FString("Number 4 Key"));
+
+	GameplayTags.InputTag_Passive_1 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("InputTag.Passive.1"),
+		FString("Passive Ability 1"));
+
+	GameplayTags.InputTag_Passive_2 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("InputTag.Passive.2"),
+		FString("Passive Ability 2"));
+
+	/* Meta */
+	GameplayTags.Attributes_Meta_IncomingXP = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Attributes.Meta.IncomingXP"),
+		FString("Incoming Experience Meta Attribute"));
+
 	/* Primary Attributes */
 	GameplayTags.Attributes_Primary_Strength = UGameplayTagsManager::Get().AddNativeGameplayTag(
 		FName("Attributes.Primary.Strength"), 
@@ -65,39 +103,6 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.Attributes_Secondary_ManaRegeneration = UGameplayTagsManager::Get().AddNativeGameplayTag(
 		FName("Attributes.Secondary.ManaRegeneration"), 
 		FString("Amount of Mana regenerated every 1 second"));
-	
-	/* Input Tags */
-	GameplayTags.InputTag_LMB = UGameplayTagsManager::Get().AddNativeGameplayTag(
-		FName("InputTag.LMB"), 
-		FString("Left Mouse Button"));
-
-	GameplayTags.InputTag_RMB = UGameplayTagsManager::Get().AddNativeGameplayTag(
-		FName("InputTag.RMB"), 
-		FString("Right Mouse Button"));
-
-	GameplayTags.InputTag_1 = UGameplayTagsManager::Get().AddNativeGameplayTag(
-		FName("InputTag.1"), 
-		FString("Number 1 Key"));
-
-	GameplayTags.InputTag_2 = UGameplayTagsManager::Get().AddNativeGameplayTag(
-		FName("InputTag.2"), 
-		FString("Number 2 Key"));
-
-	GameplayTags.InputTag_3 = UGameplayTagsManager::Get().AddNativeGameplayTag(
-		FName("InputTag.3"), 
-		FString("Number 3 Key"));
-
-	GameplayTags.InputTag_4 = UGameplayTagsManager::Get().AddNativeGameplayTag(
-		FName("InputTag.4"), 
-		FString("Number 4 Key"));
-
-	GameplayTags.InputTag_Passive_1 = UGameplayTagsManager::Get().AddNativeGameplayTag(
-		FName("InputTag.Passive.1"),
-		FString("Passive Ability 1"));
-
-	GameplayTags.InputTag_Passive_2 = UGameplayTagsManager::Get().AddNativeGameplayTag(
-		FName("InputTag.Passive.2"),
-		FString("Passive Ability 2"));
 
 	/* Resistances */
 	GameplayTags.Attributes_Resistance_Fire = UGameplayTagsManager::Get().AddNativeGameplayTag(
@@ -115,11 +120,6 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.Attributes_Resistance_Physical = UGameplayTagsManager::Get().AddNativeGameplayTag(
 		FName("Attributes.Resistance.Physical"), 
 		FString("Resistance to Physical Damage"));
-
-	/* Meta */
-	GameplayTags.Attributes_Meta_IncomingXP = UGameplayTagsManager::Get().AddNativeGameplayTag(
-		FName("Attributes.Meta.IncomingXP"),
-		FString("Incoming Experience Meta Attribute"));
 
 	/* Damage and Damage Types */
 	GameplayTags.Damage = UGameplayTagsManager::Get().AddNativeGameplayTag(
@@ -142,11 +142,54 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 		FName("Damage.Physical"), 
 		FString("Physical Damage Type"));
 
-	/* Linking Damage Types to Resistances in Map */
+	/* Debuffs */
+	GameplayTags.Debuff_Burn = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Debuff.Burn"),
+		FString("Debuff for Fire Damage"));
+
+	GameplayTags.Debuff_Stun = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Debuff.Stun"),
+		FString("Debuff for Lightning Damage"));
+
+	GameplayTags.Debuff_Arcane = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Debuff.Arcane"),
+		FString("Debuff for Arcane Damage"));
+
+	GameplayTags.Debuff_Physical = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Debuff.Physical"),
+		FString("Debuff for Physical Damage"));
+
+	/* Debuff Info */
+	GameplayTags.Debuff_Info_Chance = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Debuff.Info.Chance"),
+		FString("Debuff Chance"));
+
+	GameplayTags.Debuff_Info_Damage = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Debuff.Info.Damage"),
+		FString("Debuff Damage"));
+
+	GameplayTags.Debuff_Info_Duration = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Debuff.Info.Duration"),
+		FString("Debuff Duration"));
+
+	GameplayTags.Debuff_Info_Frequency = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Debuff.Info.Frequency"),
+		FString("Debuff Frequency"));
+
+	GameplayTags.Debuff_Info_Stagger = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Debuff.Info.Stagger"),
+		FString("Debuff Stagger"));
+
+	/* Linking Damage Types to Resistances */
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_Arcane, GameplayTags.Attributes_Resistance_Arcane);
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_Fire, GameplayTags.Attributes_Resistance_Fire);
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_Lightning, GameplayTags.Attributes_Resistance_Lightning);
 	GameplayTags.DamageTypesToResistances.Add(GameplayTags.Damage_Physical, GameplayTags.Attributes_Resistance_Physical);
+	/* Linking Damage Types to Debuffs */
+	GameplayTags.DamageTypesToDebuffs.Add(GameplayTags.Damage_Arcane, GameplayTags.Debuff_Arcane);
+	GameplayTags.DamageTypesToDebuffs.Add(GameplayTags.Damage_Fire, GameplayTags.Debuff_Burn);
+	GameplayTags.DamageTypesToDebuffs.Add(GameplayTags.Damage_Lightning, GameplayTags.Debuff_Stun);
+	GameplayTags.DamageTypesToDebuffs.Add(GameplayTags.Damage_Physical, GameplayTags.Debuff_Physical);
 
 	/* Effects */
 	GameplayTags.Effects_HitReact = UGameplayTagsManager::Get().AddNativeGameplayTag(
