@@ -39,9 +39,6 @@ public:
 	/** </ICombatInterface> */
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
-	float BaseWalkSpeed = 250.f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
 	float LifeSpan = 5.f;
 
 	UPROPERTY(BlueprintReadWrite, Category = "Combat")
@@ -54,6 +51,10 @@ public:
 	FOnAttributeChangedSignature OnHealthChanged;
 
 	void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
+
+	/* <AAuraCharacterBase> */
+	virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount) override;
+	/* </AAuraCharacterBase> */
 
 	UPROPERTY(BlueprintReadOnly, Category = "Combat")
 	bool bHitReacting = false;

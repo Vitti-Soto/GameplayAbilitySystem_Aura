@@ -14,6 +14,7 @@ class IEnemyInterface;
 class UAuraInputConfig;
 class UAuraAbilitySystemComponent;
 class USplineComponent;
+class UNiagaraSystem;
 class UDamageTextComponent;
 
 UCLASS()
@@ -81,6 +82,9 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<USplineComponent> Spline;
+
+	UPROPERTY(EditDefaultsOnly)
+	TObjectPtr<UNiagaraSystem> ClickNiagaraSystem;
 
 	void AutoRun();
 

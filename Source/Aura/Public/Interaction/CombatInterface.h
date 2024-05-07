@@ -60,6 +60,7 @@ public:
 	UAnimMontage* GetHitReactMontage();
 
 	virtual void Die(const FVector& DeathImpulse) = 0;
+	virtual FOnDeathDelegate& GetOnDeathDelegate() = 0;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	bool IsDead() const;
@@ -85,7 +86,17 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	ECharacterClass GetCharacterClass();
 
-	virtual FOnASCRegisteredDelegate GetOnASCRegisteredDelegate() = 0;
+	virtual FOnASCRegisteredDelegate& GetOnASCRegisteredDelegate() = 0;
 
-	virtual FOnDeathDelegate GetOnDeathDelegate() = 0;
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void SetInShockLoop(bool bInLoop);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	bool IsShocked() const;
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void SetIsShocked(bool bIsBeingShocked);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	USkeletalMeshComponent* GetWeapon();
 };

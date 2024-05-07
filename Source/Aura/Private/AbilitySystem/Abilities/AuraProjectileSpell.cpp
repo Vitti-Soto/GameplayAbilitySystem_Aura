@@ -12,17 +12,15 @@ void UAuraProjectileSpell::ActivateAbility(const FGameplayAbilitySpecHandle Hand
 
 void UAuraProjectileSpell::SpawnProjectile(const FVector& ProjectileTargetLocation, const FGameplayTag& SocketTag, bool bOverridePitch, float PitchOverride)
 {
-	
 	const bool bIsServer = GetAvatarActorFromActorInfo()->HasAuthority();
 	if (!bIsServer) return;
 
+	// Make this the Avatar Actor's Location instead, otherwise clicking under Aura will give weird results
 	const FVector SocketLocation = ICombatInterface::Execute_GetCombatSocketLocation(
 		GetAvatarActorFromActorInfo(),
 		SocketTag);
 
-	FVector StraightenedTargetLocation = ProjectileTargetLocation;
-	StraightenedTargetLocation.Z = SocketLocation.Z;
-	FRotator Rotation = (StraightenedTargetLocation - SocketLocation).Rotation();
+	FRotator Rotation = (ProjectileTargetLocation - SocketLocation).Rotation();
 
 	if (bOverridePitch)
 	{

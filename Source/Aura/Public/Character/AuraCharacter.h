@@ -26,6 +26,11 @@ public:
 	virtual void PossessedBy(AController* NewController) override;
 	/** </ACharacter> */
 
+	/* <AuraCharacterBase> */
+	virtual void OnRep_Burned() override;
+	virtual void OnRep_Stunned() override;
+	/* </AuraCharacterBase> */
+
 	/** <APawn> */
 	virtual void OnRep_PlayerState() override;
 	/** </APawn> */

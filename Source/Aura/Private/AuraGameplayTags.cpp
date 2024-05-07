@@ -262,6 +262,10 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 		FName("Cooldown.Fire.FireBolt"),
 		FString("FireBolt Cooldown Tag"));
 
+	GameplayTags.Cooldown_Fire_FireBolt = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Cooldown.Lightning.Electrocute"),
+		FString("Electrocute Cooldown Tag"));
+
 	/* Combat Socket */
 	GameplayTags.CombatSocket_Weapon = UGameplayTagsManager::Get().AddNativeGameplayTag(
 		FName("CombatSocket.Weapon"),
@@ -299,4 +303,21 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 	GameplayTags.Montage_Summon_1 = UGameplayTagsManager::Get().AddNativeGameplayTag(
 		FName("Montage.Summon.1"),
 		FString("Summon 1"));
+
+	/* Player Tags */
+	GameplayTags.Player_Block_InputPressed = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Player.Block.InputPressed"),
+		FString("Block Input Pressed Callback"));
+
+	GameplayTags.Player_Block_InputHeld = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Player.Block.InputHeld"),
+		FString("Block Input Held Callback"));
+
+	GameplayTags.Player_Block_InputReleased = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Player.Block.InputReleased"),
+		FString("Block Input Released Callback"));
+
+	GameplayTags.Player_Block_InputHeld = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Player.Block.CursorTrace"),
+		FString("Block tracing under the cursor"));
 }

@@ -97,6 +97,7 @@ public:
 
 	/* Cooldowns */
 	FGameplayTag Cooldown_Fire_FireBolt;
+	FGameplayTag Cooldown_Lightning_Electrocute;
 
 	/* Effect */
 	FGameplayTag Effects_HitReact;
@@ -117,6 +118,12 @@ public:
 	FGameplayTag Montage_Attack_4;
 
 	FGameplayTag Montage_Summon_1;
+
+	/* Player */
+	FGameplayTag Player_Block_InputPressed;
+	FGameplayTag Player_Block_InputHeld;
+	FGameplayTag Player_Block_InputReleased;
+	FGameplayTag Player_Block_CursorTrace;
 
 	/* Damage Types Maps */
 	TMap<FGameplayTag, FGameplayTag> DamageTypesToResistances;

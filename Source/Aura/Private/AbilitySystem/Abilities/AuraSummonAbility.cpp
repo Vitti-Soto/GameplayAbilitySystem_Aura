@@ -2,23 +2,21 @@
 
 
 #include "AbilitySystem/Abilities/AuraSummonAbility.h"
+#include "AbilitySystem/AuraAbilitySystemLibrary.h"
 
 TArray<FVector> UAuraSummonAbility::GetSpawnLocations()
 {
 	const FVector Forward = GetAvatarActorFromActorInfo()->GetActorForwardVector();
 	const FVector Location = GetAvatarActorFromActorInfo()->GetActorLocation();
-	const float DeltaSpread = SpawnSpread / NumMinions;
-	const float DeltaAdjust = DeltaSpread / 2.f;
+
+	TArray<FVector> Directions = UAuraAbilitySystemLibrary::EvenlyRotatedVectors(Forward, FVector::UpVector, SpawnSpread, NumMinions);
 
 	TArray<FVector> SpawnLocations;
 
-	const FVector RightOfSpread = Forward.RotateAngleAxis(SpawnSpread / 2.f, FVector::UpVector);
-
-	for (int32 i = 0; i < NumMinions; i++)
+	for (const FVector& Direction : Directions)
 	{
-		const FVector Direction = RightOfSpread.RotateAngleAxis((-DeltaSpread * i) - DeltaAdjust, FVector::UpVector);
 		FVector ChosenSpawnLocation = Location + Direction * FMath::FRandRange(MinSpawnDistance, MaxSpawnDistance);
-		
+
 		FHitResult Hit;
 		GetWorld()->LineTraceSingleByChannel(Hit,
 			ChosenSpawnLocation + FVector(0.f, 0.f, 400.f),
@@ -29,47 +27,8 @@ TArray<FVector> UAuraSummonAbility::GetSpawnLocations()
 		{
 			ChosenSpawnLocation = Hit.ImpactPoint;
 		}
-		
+
 		SpawnLocations.Add(ChosenSpawnLocation);
-
-
-
-		/*
-		*	DrawDebugSphere(
-		*		GetWorld(),
-		*		ChosenSpawnLocation,
-		*		20.f,
-		*		12,
-		*		FColor::Cyan,
-		*		false,
-		*		3.f);
-		*
-		*	UKismetSystemLibrary::DrawDebugArrow(
-		*		GetAvatarActorFromActorInfo(),
-		*		Location,
-		*		Location + Direction * MaxSpawnDistance,
-		*		4.f,
-		*		FLinearColor::Blue,
-		*		3.f);
-		*
-		*	DrawDebugSphere(
-		*		GetWorld(),
-		*		Location + Direction * MinSpawnDistance,
-		*		10.f,
-		*		12,
-		*		FColor::Green,
-		*		false,
-		*		3.f);
-		*
-		*	DrawDebugSphere(
-		*		GetWorld(),
-		*		Location + Direction * MaxSpawnDistance,
-		*		10.f,
-		*		12,
-		*		FColor::Red,
-		*		false,
-		*		3.f);
-		*/
 	}
 
 	return SpawnLocations;

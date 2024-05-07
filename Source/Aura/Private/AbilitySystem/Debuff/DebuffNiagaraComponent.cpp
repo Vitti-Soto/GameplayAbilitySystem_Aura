@@ -34,11 +34,6 @@ void UDebuffNiagaraComponent::BeginPlay()
 					&UDebuffNiagaraComponent::DebuffTagChanged);
 			});
 	}
-
-	if (CombatInterface)
-	{
-		CombatInterface->GetOnDeathDelegate().AddDynamic(this, &UDebuffNiagaraComponent::OnOwnerDeath);
-	}
 }
 
 void UDebuffNiagaraComponent::DebuffTagChanged(const FGameplayTag CallbackTag, int32 NewCount)
